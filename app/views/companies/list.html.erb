@@ -1,0 +1,29 @@
+<h1>Companies list</h1>
+
+<% @page_title = 'Companies list' %>
+
+<%= link_to("Nuevo", {:action => 'new'}, :class => 'action new' ) %>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <% @columns.each do |column| %>
+        <th><%= column %></th>
+      <% end %>
+      <th>Actions</th>
+    </tr>
+    <% @list_table.each do |line| %>
+        <tr>
+          <% @columns.each do |column| %>
+              <td><%= line[column] %></td>
+          <% end %>
+          <td>
+            <%= link_to("Show", {:action => 'show', :id => line.id}, :class => 'action show' ) %>
+            <%= link_to("Edit", {:action => 'edit', :id => line.id}, :class => 'action edit' ) %>
+            <%= link_to("Delete", {:action => 'delete', :id => line.id}, :class => 'action delete' ) %>
+          </td>
+
+        </tr>
+    <% end %>
+  </table>
+</div>

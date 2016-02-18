@@ -1,0 +1,23 @@
+<h1>Company#new</h1>
+<%= link_to("Back to list", {:action => 'list'}) %>
+<div class="">
+  <%= form_for(:item, :url => {:action => @form_action, :id => @item.id}) do |f| %>
+  <div class="form-group">
+    
+    <% @fields.each do |field| %>
+		<div>
+     	<%= f.label :name, field%>
+		<%= f.text_field(field, :class => 'form-control') %>
+		</div>
+	<% end %>	
+   </div>
+  <br />
+  <%= if @form_action = "create" then
+  	submit_tag("Create item", :class => 'btn btn-default') 
+  	else
+  	submit_tag("Update item", :class => 'btn btn-default') 
+  	end
+  	%>
+
+  <% end %>
+</div>

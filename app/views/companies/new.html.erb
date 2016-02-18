@@ -1,0 +1,17 @@
+<h1>Company#new</h1>
+<div class="">
+  <%= form_for(:item, :url => {:action => 'create'}) do |f| %>
+  <div class="form-group">
+    
+    <% @fields.each do |field| %>
+		<div>
+     	<%= f.label :name, field%>
+		<%= f.text_field(field, :class => 'form-control') %>
+		</div>
+	<% end %>	
+   </div>
+  <br />
+  <%= submit_tag("Create user", :class => 'btn btn-default') %>
+
+  <% end %>
+</div>

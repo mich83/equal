@@ -1,0 +1,15 @@
+<div class="">
+  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'Nombre'%>
+    <%= f.text_field(:name, :class => 'form-control') %>
+   </div>
+   <div>
+     <%= f.label :name, 'Apellido'%>
+     <%= f.text_field(:surname, :class => 'form-control') %>
+   </div>
+  <br />
+  <%= submit_tag("Create user", :class => 'btn btn-default') %>
+
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<% content_for :header do -%>
+<style type="text/css">
+<%=@head.to_s %>
+</style>
+<% end -%>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @document.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @document.date %>
+</p>
+<br>
+<p>
+  <strong>Content:</strong>
+  <%= @body.to_s.html_safe %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
+

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+
+    Equal <%= @page_title || 'Normativa contable' %>
+
+  </title>
+
+  <!-- Bootstrap core CSS -->
+  <%= stylesheet_link_tag "bootstrap", media: "all"  %>
+  <%= stylesheet_link_tag "docs", media: "all"  %>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+<%= javascript_include_tag "html5shiv", media: "all"  %>
+<%= javascript_include_tag "rspond.min", media: "all"  %>
+  <![endif]-->
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+   <%= content_for :header %>
+  <!-- Place anything custom after this. -->
+</head>
+
+
+<body>
+
+<a class="sr-only" href="#content">Skip navigation</a>
+
+<!-- Docs master nav -->
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">Equal</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="../documents">NIC y NIIFs</a>
+        </li>
+        <li>
+          <a href="">Códigos</a>
+        </li>
+        <li>
+          <a href="">Tributario</a>
+        </li>
+        <li>
+          <a href="">Noticias</a>
+        </li>
+        <li>
+          <a href="">Soporte</a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" placeholder="Consulta" class="form-control">
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-success">Buscar</button>
+          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Busqueda avanzada</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Ultima busqueda</a></li>
+            <li><a href="#">Penultima busqueda</a></li>
+          </ul>
+        </div>
+      </form>
+
+    </nav>
+  </div>
+</header>
+
+<div class="container bs-docs-container">
+
+  <%= yield %>
+
+</div>
+
+
+<!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <div class="bs-social">
+      <ul class="bs-social-buttons">
+        <li>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=watch&amp;count=true" width="100" height="20" title="Star on GitHub"></iframe>
+        </li>
+        <li>
+          <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=fork&amp;count=true" width="102" height="20" title="Fork on GitHub"></iframe>
+        </li>
+        <li class="follow-btn">
+          <a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
+        </li>
+        <li class="tweet-btn">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://getbootstrap.com/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <p>El sistema fue diseñado por Alexey Gerasimov de Abaco Soluciones <a href="http://abaco.com.ec" target="_blank">abaco.com.ec</a></p>
+    <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    <ul class="footer-links">
+      <li><a href="http://abaco.ec">Edi-abaco</a></li>
+      <li class="muted">&middot;</li>
+      <li><a href="https://github.com/twbs/bootstrap/releases">Releases</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+<!-- Errors and infos --->
+<div id="err-footer">
+  <div class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <div class="container">
+        <!--        <div class="alert alert-danger alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>Atención!</strong> Su subscripción ha caducado. <a href=""> Comuniquese</a> al departamento de ventas
+        </div>
+--->        <% if !flash[:notice].blank? %>
+            <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <%= flash[:notice]%>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- JS and analytics only. -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<%= javascript_include_tag "jquery", media: "all"  %>
+<%= javascript_include_tag "bootstrap", media: "all"  %>
+<%= javascript_include_tag "http://platform.twitter.com/widgets.js", media: "all"  %>
+<%= javascript_include_tag "holder", media: "all"  %>
+<%= javascript_include_tag "application", media: "all"  %>
+
+
+<script>
+    $(function ()
+    {
+        $("#link_001").popover({placement:'bottom', trigger: 'hover', delay: { show: 500, hide: 100 }});
+    });
+</script>
+
+
+
+</body>
+</html>
